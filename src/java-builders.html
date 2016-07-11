@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="outer"
+    style="width=99%; height=99%">
+  <div class="boxes">
+    <form id="builder-source-form" name="builder-soure-form" >
+      <p class="instructions">
+        <label title="Paste a complete java class here" for="fragment">Enter the java bean to convert</label>
+        <br/>
+        <textarea id="source" class="source" name="source" cols="80" rows="20"
+                wrap="SOFT"
+                tabindex="0"
+                dir="ltr"
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off">
+Please paste a java class here that you want converted into a Builder.
+It public getXXX methods that will be converted into with methods.
+        </textarea>
+      </p>
+      <input type="button" id="submitSource" value="Go Builder" />
+    </form>
+  </div>
+  <div id="output-div" class="boxes" style="display: none;">
+    <textarea id="output"
+              name="output-java"
+              cols="80" rows="20"
+              wrap="SOFT"
+              tabindex="0"
+              dir="ltr"
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              style="box-sizing: border-box;
+              overflow-y: hidden;
+              overflow-x: auto;
+              padding-left: 10px;
+              padding-right: 20px;">
+    </textarea>
+  </div>
+</div>
+
+<script src="./builder.js"></script>
+<script >
+//- Using a function pointer:
+document.getElementById("submitSource").onclick = doSubmitSource;
+</script>
+<script>
+body {
+    background-color: linen;
+}
+
+.outer {
+    margin: 5px;
+}
+
+.boxes {
+  box-sizing: content-box;
+  width: 49%;
+  height: 99%;
+}
+
+textarea.source {
+  box-sizing: border-box;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-right: 20px;
+}
+</script>
+</body>
+</html>
