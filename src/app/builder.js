@@ -4,3 +4,7 @@ function doSubmitSource() {
   document.getElementById("output").innerHTML = "output:"+body;
   document.getElementById("output-div").style.display="block";
 }
+
+exports.sayhello = function() {
+  return "hello";
+};
