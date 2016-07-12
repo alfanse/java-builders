@@ -10,14 +10,20 @@
       <p class="instructions">
         <label title="Paste a complete java class here" for="fragment">Enter the java bean to convert</label>
         <br/>
-        <textarea id="source" class="source" name="source" cols="80" rows="20"
+        <textarea id="source"
+                class="source"
+                name="source"
+                cols="80" rows="20"
                 wrap="SOFT"
                 tabindex="0"
                 dir="ltr"
                 spellcheck="false"
                 autocapitalize="off"
                 autocomplete="off"
-                autocorrect="off">
+                autocorrect="off"
+                style="box-sizing: border-box;
+                overflow-y: hidden;
+                overflow-x: auto;">
 Please paste a java class here that you want converted into a Builder.
 It public getXXX methods that will be converted into with methods.
         </textarea>
@@ -38,9 +44,7 @@ It public getXXX methods that will be converted into with methods.
               autocorrect="off"
               style="box-sizing: border-box;
               overflow-y: hidden;
-              overflow-x: auto;
-              padding-left: 10px;
-              padding-right: 20px;">
+              overflow-x: auto;">
     </textarea>
   </div>
 </div>
