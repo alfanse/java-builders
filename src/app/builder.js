@@ -5,6 +5,6 @@ function doSubmitSource() {
   document.getElementById("output-div").style.display="block";
 }
 
-exports.sayhello = function() {
-  return "hello";
+exports.convertBeanToBuilder = function(source) {
+  return source;
 };

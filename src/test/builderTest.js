@@ -1,8 +1,8 @@
 var assert = require('chai').assert;
-var sayhello = require('../app/builder.js').sayhello;
+var convertBeanToBuilder = require('../app/builder.js').convertBeanToBuilder;
 
-describe('hello', function() {
-  it('should say hello', function() {
-    assert.equal(sayhello(), "hello");
+describe('convertBeanToBuilder', function() {
+  it('should return whats given', function() {
+    assert.equal(convertBeanToBuilder('given stuff'), "given stuff");
   });
 });
