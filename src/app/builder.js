@@ -23,12 +23,31 @@ exports.convertUsingConstructor = function(source) {
 
       //find class declaration
       if(~parsedRow.indexOf(' class ')){
+         //find the classes name.
          var regGroup = classNameFinder.exec(parsedRow);
          classname = regGroup[1];
-         parsedRow = parsedRow.replace(" "+classname+" ", " "+classname+"Builder ");
-      }
 
-      output+=parsedRow;
+         //replace Classname with new builder name
+         parsedRow = parsedRow.replace(" "+classname+" ", " "+classname+"Builder ");
+     }
+
+     //remove superclasses
+     if(~parsedRow.indexOf('extends ')){
+        parsedRow = parsedRow.replace(/(extends \w*\s)/, "");
+     }
+
+     //remove interfaces
+     if(~parsedRow.indexOf('implements ')){
+        parsedRow = parsedRow.replace(/(implements \w*,*\w*\s)/, "");
+     }
+
+     //find the constructor
+     if(new RegExp("[^class ]["+classname+"]?").test(parsedRow)){
+      //  console.log("constructor line"+parsedRow);
+     }
+
+
+     output+=parsedRow;
   }
   return output;
 };
