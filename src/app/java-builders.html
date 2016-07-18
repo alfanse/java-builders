@@ -8,7 +8,8 @@
   <div class="boxes">
     <form id="builder-source-form" name="builder-soure-form" >
       <p class="instructions">
-        <label title="Paste a complete java class here" for="fragment">Enter the java bean to convert</label>
+        <label title="Instructions" for="fragment">Paste a java bean for conversion to a builder</label><br/>
+        <label title="Hint" for="fragment">It will use the constructor params to generate with[param] methods</label>
         <br/>
         <textarea id="source"
                 class="source"
@@ -24,8 +25,29 @@
                 style="box-sizing: border-box;
                 overflow-y: hidden;
                 overflow-x: auto;">
-Please paste a java class here that you want converted into a Builder.
-It public getXXX methods that will be converted into with methods.
+package adf.embers.configuration;
+
+import org.skife.jdbi.v2.DBI;
+import javax.sql.DataSource;
+
+public class EmbersConfiguration extends A implements B {
+
+    private final DataSource dataSource;
+    private final DBI dbi;
+
+    public EmbersConfiguration(DataSource dataSource, DBI dbi) {
+        this.dataSource = dataSource;
+        this.dbi = dbi;
+    }
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public DBI getDBI() {
+        return dbi;
+    }
+}
         </textarea>
       </p>
       <input type="button" id="submitSource" value="Go Builder" />
@@ -49,12 +71,8 @@ It public getXXX methods that will be converted into with methods.
   </div>
 </div>
 
-<script src="./builder.js"></script>
+<script src="./builder.js" />
 <script >
-//- Using a function pointer:
-document.getElementById("submitSource").onclick = doSubmitSource;
-</script>
-<script>
 body {
     background-color: linen;
 }
@@ -75,6 +93,11 @@ textarea.source {
   overflow-x: auto;
   padding-right: 20px;
 }
+
+</script>
+<script>
+  //- Using a function pointer:
+  document.getElementById("submitSource").onclick = doSubmitSource;
 </script>
 </body>
 </html>

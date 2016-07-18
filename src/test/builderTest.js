@@ -15,12 +15,6 @@ describe('convertUsingConstructor', function() {
     assert.equal(builder.convertUsingConstructor(input), expected);
   });
 
-  it('should rename class with name+Builder when extends other class', function() {
-    var input ="public class Alpha extends Object\n" + "{\n" +"}";
-    var expected ="public class AlphaBuilder extends Object\n" + "{\n" +"}"
-    assert.equal(builder.convertUsingConstructor(input), expected);
-  });
-
   it('should rename class with name+Builder and remove interface, when implements an interface', function() {
     var input ="public class Alpha implements Thing {\n" + "\n" +"}";
     var expected ="public class AlphaBuilder {\n" + "\n" +"}"
